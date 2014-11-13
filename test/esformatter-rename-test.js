@@ -172,7 +172,6 @@ describe('esformatter-rename', function () {
 
   describe('formatting a JS file with an undeclared variable and allowed renames for undeclared variables', function () {
     testUtils.format(__dirname + '/test-files/declared-override.js', {
-      renameTopLevel: true,
       renameUndeclared: true,
       variables: {
         a: 'renamedA',
