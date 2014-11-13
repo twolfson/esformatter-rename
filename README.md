@@ -73,7 +73,7 @@ We provide the following options to configure `esformatter-rename` during transf
 - renameTopLevel `Boolean` - Allow for renaming of top level variables (i.e. anything declared with a `var` in the global scope)
     - If `true`, renaming is allowed. If `false`, it is not and a warning is logged.
     - By default, this is `false`.
-- renameUndeclared `Boolean` - Allow for renaming of undeclared variables (e.g. variable referenced without a `var`/parameter/etc)
+- renameUndeclared `Boolean` - Allow for renaming of undeclared variables (e.g. variable referenced without a `var`)
     - If `true`, renaming is allowed. If `false`, it is not and a warning is logged.
     - By default, this is `false`.
 - ignoreWith `Boolean` - Allow for renaming of variables that were referenced at least once in a `with`
