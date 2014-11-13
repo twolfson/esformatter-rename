@@ -4,8 +4,7 @@ var fs = require('fs');
 var CircularJSON = require('circular-json');
 var deepClone = require('clone');
 var esformatter = require('esformatter');
-var extend = require('obj-extend');
-var esformatterPhonetic = require('../');
+var esformatterRename = require('../');
 
 // Define test utilities
 var testUtils = {
@@ -26,20 +25,18 @@ var testUtils = {
 
       // Register our plugins
       esformatter.register(beforePlugin);
-      esformatter.register(esformatterPhonetic);
+      esformatter.register(esformatterRename);
       esformatter.register(afterPlugin);
 
       // Format our content
       var input = fs.readFileSync(filepath, 'utf8');
       this.output = esformatter.format(input, {
-        phonetic: extend({
-          baseSeed: 1337
-        }, options)
+        rename: options
       });
 
       // Unregister our plugins
       esformatter.unregister(beforePlugin);
-      esformatter.unregister(esformatterPhonetic);
+      esformatter.unregister(esformatterRename);
       esformatter.unregister(afterPlugin);
 
       // If we are in a debug environment, write the output to disk
@@ -64,7 +61,7 @@ var testUtils = {
 
 // Start our tests
 // Basic functionality
-describe('esformatter-phonetic', function () {
+describe('esformatter-rename', function () {
   describe('formatting a JS file with a declared `var`', function () {
     testUtils.format(__dirname + '/test-files/declared-yes.js');
 
@@ -119,7 +116,7 @@ describe('esformatter-phonetic', function () {
 });
 
 // Intermediate cases
-describe('esformatter-phonetic', function () {
+describe('esformatter-rename', function () {
   describe('formatting a JS file with a common variable name in different scopes', function () {
     testUtils.format(__dirname + '/test-files/mixed-scopes.js');
 
@@ -142,7 +139,7 @@ describe('esformatter-phonetic', function () {
 });
 
 // Edge cases
-describe('esformatter-phonetic', function () {
+describe('esformatter-rename', function () {
   describe('formatting a script with no potential changes', function () {
     testUtils.format(__dirname + '/test-files/no-changes.js');
 
