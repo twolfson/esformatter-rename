@@ -82,7 +82,34 @@ We provide the following options to configure `esformatter-rename` during transf
     - By default, this is `false`.
 
 ## Examples
-_(Coming soon)_
+### Renaming `jQuery`
+In this example, we will rest `jQuery` from its normal convention of `$` to the full name `jQuery`.
+
+**Script before renaming:**
+
+```js
+console.log($('#main').text());
+```
+
+**Formatter options:**
+
+```js
+{
+  rename: {
+    variables: {
+      '$': 'jQuery'
+    },
+    renameUndeclared: true
+  }
+}
+```
+
+**Script after renaming:**
+
+```js
+console.log(jQuery('#main').text());
+```
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
