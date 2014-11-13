@@ -156,6 +156,19 @@ describe('esformatter-rename', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe('formatting a JS file with labels', function () {
+    testUtils.format(__dirname + '/test-files/labels.js', {
+      labels: {
+        a: 'renamedA',
+        b: 'renamedB'
+      }
+    });
+
+    it('renames the labels', function () {
+
+    });
+  });
 });
 
 // Intermediate cases
