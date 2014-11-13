@@ -28,7 +28,11 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ecma-variable-scope": "~2.1.0",
+    "estraverse": "~1.7.1",
+    "rocambole": "~0.3.6"
+  },
   "devDependencies": {
     "mocha": "~1.11.0",
     "grunt": "~0.4.1",
