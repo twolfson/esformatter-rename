@@ -108,7 +108,7 @@ describe('esformatter-rename', function () {
     });
   });
 
-  describe('formatting a JS file with a variable that is possibly a property', function () {
+  describe('formatting a JS file with a variable that was used in a `with` (e.g. possibly a property)', function () {
     testUtils.format(__dirname + '/test-files/with.js');
 
     it('does not update the names', function () {
@@ -143,7 +143,7 @@ describe('esformatter-rename', function () {
       renameTopLevel: true
     });
 
-    it('does not update the names', function () {
+    it('does update the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/top-level-override.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
