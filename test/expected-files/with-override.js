@@ -4,6 +4,6 @@ function hello() {
   var renamedA = {};
   var renamedB = true;
   with (renamedA) {
-    console.log(renamedB);
+  console.log(renamedB);
   }
 }
