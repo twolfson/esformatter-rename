@@ -65,7 +65,8 @@ describe('esformatter-rename', function () {
   describe('formatting a JS file with a declared `var` and a rename', function () {
     testUtils.format(__dirname + '/test-files/declared-yes.js', {
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -85,7 +86,7 @@ describe('esformatter-rename', function () {
   describe('formatting a JS file with a declared `var` and no rename', function () {
     testUtils.format(__dirname + '/test-files/declared-yes-without-rename.js', {
       variables: {
-        b: 'renamedB'
+        no: 'rename'
       }
     });
 
@@ -98,7 +99,8 @@ describe('esformatter-rename', function () {
   describe('formatting a JS file with an undeclared variable', function () {
     testUtils.format(__dirname + '/test-files/declared-no.js', {
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -111,7 +113,8 @@ describe('esformatter-rename', function () {
   describe('formatting a JS file with a variable that was used in a `with` (e.g. possibly a property)', function () {
     testUtils.format(__dirname + '/test-files/with.js', {
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -124,7 +127,8 @@ describe('esformatter-rename', function () {
   describe('formatting a JS file with a top level variable', function () {
     testUtils.format(__dirname + '/test-files/top-level-yes.js', {
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -137,7 +141,8 @@ describe('esformatter-rename', function () {
   describe('formatting a JS file with a non-top level variable', function () {
     testUtils.format(__dirname + '/test-files/top-level-no.js', {
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -154,7 +159,8 @@ describe('esformatter-rename', function () {
     testUtils.format(__dirname + '/test-files/top-level-override.js', {
       renameTopLevel: true,
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -166,9 +172,11 @@ describe('esformatter-rename', function () {
 
   describe('formatting a JS file with an undeclared variable and allowed renames for undeclared variables', function () {
     testUtils.format(__dirname + '/test-files/declared-override.js', {
+      renameTopLevel: true,
       renameUndeclared: true,
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -182,7 +190,8 @@ describe('esformatter-rename', function () {
     testUtils.format(__dirname + '/test-files/with-override.js', {
       ignoreWith: true,
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
@@ -198,7 +207,8 @@ describe('esformatter-rename', function () {
   describe('formatting a script with no potential changes', function () {
     testUtils.format(__dirname + '/test-files/no-changes.js', {
       variables: {
-        a: 'renamedA'
+        a: 'renamedA',
+        b: 'renamedB'
       }
     });
 
