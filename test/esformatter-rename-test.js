@@ -62,16 +62,14 @@ var testUtils = {
 // Start our tests
 // Basic functionality
 describe('esformatter-rename', function () {
-  describe.only('formatting a JS file with a declared `var` and a rename', function () {
+  describe('formatting a JS file with a declared `var` and a rename', function () {
     testUtils.format(__dirname + '/test-files/declared-yes.js', {
-      rename: {
-        variables: {
-          a: 'renamedA'
-        }
+      variables: {
+        a: 'renamedA'
       }
     });
 
-    it('updates the names', function () {
+    it.only('updates the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/declared-yes.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
