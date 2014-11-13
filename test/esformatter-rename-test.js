@@ -62,8 +62,14 @@ var testUtils = {
 // Start our tests
 // Basic functionality
 describe('esformatter-rename', function () {
-  describe('formatting a JS file with a declared `var` and a rename', function () {
-    testUtils.format(__dirname + '/test-files/declared-yes.js');
+  describe.only('formatting a JS file with a declared `var` and a rename', function () {
+    testUtils.format(__dirname + '/test-files/declared-yes.js', {
+      rename: {
+        variables: {
+          a: 'renamedA'
+        }
+      }
+    });
 
     it('updates the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/declared-yes.js', 'utf8');
@@ -72,9 +78,24 @@ describe('esformatter-rename', function () {
 
     it('updates the node\'s name', function () {
       // {Program} (afterAst) -> {fn} (body[0]) -> {var} (body.body[0])
-      //   -> esemsep {declarations[0].id}
+      //   -> renamedA {declarations[0].id}
       var identifier = this.afterAst.body[0].body.body[0].declarations[0].id;
-      assert.strictEqual(identifier.name, 'esemsep');
+      assert.strictEqual(identifier.name, 'renamedA');
+    });
+  });
+
+  describe('formatting a JS file with a declared `var` and no rename', function () {
+    testUtils.format(__dirname + '/test-files/declared-yes-without-rename.js', {
+      rename: {
+        variables: {
+          b: 'renamedB'
+        }
+      }
+    });
+
+    it('does not update the names', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/declared-yes-without-rename.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
     });
   });
 
