@@ -7,6 +7,12 @@ This was built to make comprehending deobfuscated scripts easier (e.g. rename `a
 [`esformatter`]: https://github.com/millermedeiros/esformatter
 [`esformatter-phonetic`]: https://github.com/twolfson/esformatter-phonetic
 
+**Features:**
+
+- Supports ES6 arrow functions (e.g. `(a) => a + 1`)
+- Supports `let` (e.g. `let a = 1;`)
+- Supports destructured variables (e.g. `var {a, b} = obj;`)
+
 ## Getting Started
 Install the module with: `npm install esformatter-rename`
 
@@ -51,8 +57,20 @@ Alternatively, load it via `format` or `.esformatter`:
 
 
 ## Documentation
-_(Coming soon)_
+`esformatter-rename` exposes `exports.transform` for consumption by `esformatter`.
 
+### Options
+We provide the following options to configure `esformatter-rename` during transformation. These should be stored under `rename` in your `esformatter` options.
+
+- variables `Object` - Key value pairing of original variable name to new name
+    - For example `variables: {hello: 'world'}` will rename all `hello` variables to `world` variables
+        - `function hello() { console.log('hai'); } -> function world() { console.log('hai'); }`
+    - If you are potentially doing something dangerous (e.g. renaming an undeclared variable), we will warn you/skip it since it can have global reprecussions)
+        - These warnings can be ignored and actions can be taken via the related option
+- labels `Object` - Key value pairing of origin label name to new name
+    - For example `labels: {loop1: 'myLoop'}` will rename all `loop1` labels to `myLoop`
+        - `loop1: while (true) { break loop1; } -> myLoop: while (true) { break myLoop; }`
+- renameTopLevel `Boolean` - Allow for renaming of top level variables (i.e. anything declared with a `var`
 ## Examples
 _(Coming soon)_
 
