@@ -170,6 +170,19 @@ describe('esformatter-rename', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe('formatting a JS file with labels but no rename', function () {
+    testUtils.format(__dirname + '/test-files/labels-without-rename.js', {
+      labels: {
+        no: 'rename'
+      }
+    });
+
+    it('does not update the labels', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/labels-without-rename.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
 });
 
 // Intermediate cases
