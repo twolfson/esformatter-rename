@@ -148,6 +148,28 @@ describe('esformatter-rename', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe('formatting a JS file with an undeclared variable and allowed renames for undeclared variables', function () {
+    testUtils.format(__dirname + '/test-files/declared-override.js', {
+      renameUndeclared: true
+    });
+
+    it('does update the names', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/declared-override.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe('formatting a JS file with a variable used in a `with` and allowed renames for `with\'s`', function () {
+    testUtils.format(__dirname + '/test-files/with-override.js', {
+      ignoreWith: true
+    });
+
+    it('does update the names', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/with-override.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
 });
 
 // Edge cases
