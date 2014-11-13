@@ -166,7 +166,8 @@ describe('esformatter-rename', function () {
     });
 
     it('renames the labels', function () {
-
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/labels.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
     });
   });
 });
