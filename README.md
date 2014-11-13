@@ -70,7 +70,17 @@ We provide the following options to configure `esformatter-rename` during transf
 - labels `Object` - Key value pairing of origin label name to new name
     - For example `labels: {loop1: 'myLoop'}` will rename all `loop1` labels to `myLoop`
         - `loop1: while (true) { break loop1; } -> myLoop: while (true) { break myLoop; }`
-- renameTopLevel `Boolean` - Allow for renaming of top level variables (i.e. anything declared with a `var`
+- renameTopLevel `Boolean` - Allow for renaming of top level variables (i.e. anything declared with a `var` in the global scope)
+    - If `true`, renaming is allowed. If `false`, it is not and a warning is logged.
+    - By default, this is `false`.
+- renameUndeclared `Boolean` - Allow for renaming of undeclared variables (e.g. variable referenced without a `var`/parameter/etc)
+    - If `true`, renaming is allowed. If `false`, it is not and a warning is logged.
+    - By default, this is `false`.
+- ignoreWith `Boolean` - Allow for renaming of variables that were referenced at least once in a `with`
+    - For example `var obj = {}; var hello; with (obj) { hello(); }` will not allow renaming of `hello`
+    - If `true`, renaming is allowed. If `false`, it is not and a warning is logged.
+    - By default, this is `false`.
+
 ## Examples
 _(Coming soon)_
 
