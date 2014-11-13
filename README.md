@@ -44,7 +44,7 @@ Alternatively, load it via `format` or `.esformatter`:
 ```js
 {
   plugins: [
-    'esformatter-phonetic'
+    'esformatter-rename'
   ]
 }
 ```
