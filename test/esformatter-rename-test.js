@@ -138,15 +138,6 @@ describe('esformatter-rename', function () {
 
 // Intermediate cases
 describe('esformatter-rename', function () {
-  describe('formatting a JS file with a common variable name in different scopes', function () {
-    testUtils.format(__dirname + '/test-files/mixed-scopes.js');
-
-    it('uses the same variable name between to maintain implicit connection', function () {
-      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/mixed-scopes.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
-    });
-  });
-
   describe('formatting a JS file with a top level variable and allowed renames for top levels', function () {
     testUtils.format(__dirname + '/test-files/top-level-override.js', {
       renameTopLevel: true
