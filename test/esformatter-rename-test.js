@@ -69,7 +69,7 @@ describe('esformatter-rename', function () {
       }
     });
 
-    it.only('updates the names', function () {
+    it('updates the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/declared-yes.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
@@ -84,10 +84,8 @@ describe('esformatter-rename', function () {
 
   describe('formatting a JS file with a declared `var` and no rename', function () {
     testUtils.format(__dirname + '/test-files/declared-yes-without-rename.js', {
-      rename: {
-        variables: {
-          b: 'renamedB'
-        }
+      variables: {
+        b: 'renamedB'
       }
     });
 
@@ -98,7 +96,11 @@ describe('esformatter-rename', function () {
   });
 
   describe('formatting a JS file with an undeclared variable', function () {
-    testUtils.format(__dirname + '/test-files/declared-no.js');
+    testUtils.format(__dirname + '/test-files/declared-no.js', {
+      variables: {
+        a: 'renamedA'
+      }
+    });
 
     it('does not update the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/declared-no.js', 'utf8');
@@ -107,7 +109,11 @@ describe('esformatter-rename', function () {
   });
 
   describe('formatting a JS file with a variable that was used in a `with` (e.g. possibly a property)', function () {
-    testUtils.format(__dirname + '/test-files/with.js');
+    testUtils.format(__dirname + '/test-files/with.js', {
+      variables: {
+        a: 'renamedA'
+      }
+    });
 
     it('does not update the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/with.js', 'utf8');
@@ -116,7 +122,11 @@ describe('esformatter-rename', function () {
   });
 
   describe('formatting a JS file with a top level variable', function () {
-    testUtils.format(__dirname + '/test-files/top-level-yes.js');
+    testUtils.format(__dirname + '/test-files/top-level-yes.js', {
+      variables: {
+        a: 'renamedA'
+      }
+    });
 
     it('does not update the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/top-level-yes.js', 'utf8');
@@ -125,7 +135,11 @@ describe('esformatter-rename', function () {
   });
 
   describe('formatting a JS file with a non-top level variable', function () {
-    testUtils.format(__dirname + '/test-files/top-level-no.js');
+    testUtils.format(__dirname + '/test-files/top-level-no.js', {
+      variables: {
+        a: 'renamedA'
+      }
+    });
 
     it('does not update the names', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/top-level-no.js', 'utf8');
@@ -138,7 +152,10 @@ describe('esformatter-rename', function () {
 describe('esformatter-rename', function () {
   describe('formatting a JS file with a top level variable and allowed renames for top levels', function () {
     testUtils.format(__dirname + '/test-files/top-level-override.js', {
-      renameTopLevel: true
+      renameTopLevel: true,
+      variables: {
+        a: 'renamedA'
+      }
     });
 
     it('does update the names', function () {
@@ -149,7 +166,10 @@ describe('esformatter-rename', function () {
 
   describe('formatting a JS file with an undeclared variable and allowed renames for undeclared variables', function () {
     testUtils.format(__dirname + '/test-files/declared-override.js', {
-      renameUndeclared: true
+      renameUndeclared: true,
+      variables: {
+        a: 'renamedA'
+      }
     });
 
     it('does update the names', function () {
@@ -160,7 +180,10 @@ describe('esformatter-rename', function () {
 
   describe('formatting a JS file with a variable used in a `with` and allowed renames for `with\'s`', function () {
     testUtils.format(__dirname + '/test-files/with-override.js', {
-      ignoreWith: true
+      ignoreWith: true,
+      variables: {
+        a: 'renamedA'
+      }
     });
 
     it('does update the names', function () {
@@ -173,7 +196,11 @@ describe('esformatter-rename', function () {
 // Edge cases
 describe('esformatter-rename', function () {
   describe('formatting a script with no potential changes', function () {
-    testUtils.format(__dirname + '/test-files/no-changes.js');
+    testUtils.format(__dirname + '/test-files/no-changes.js', {
+      variables: {
+        a: 'renamedA'
+      }
+    });
 
     it('leaves the tree clean', function () {
       var beforeJson = CircularJSON.stringify(this.beforeAst);

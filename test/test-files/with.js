@@ -1,9 +1,9 @@
 function hello() {
-  // DEV: We assert that `obj` will change but `world`
+  // DEV: We assert that `a` will change but `b`
   //   will not because it was used in a `with`
   var a = {};
-  var world = true;
+  var b = true;
   with (a) {
-    console.log(world);
+    console.log(b);
   }
 }
