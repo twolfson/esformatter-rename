@@ -4,6 +4,7 @@ var fs = require('fs');
 var CircularJSON = require('circular-json');
 var deepClone = require('clone');
 var esformatter = require('esformatter');
+var extend = require('obj-extend');
 var esformatterRename = require('../');
 
 // Define test utilities
@@ -31,7 +32,11 @@ var testUtils = {
       // Format our content
       var input = fs.readFileSync(filepath, 'utf8');
       this.output = esformatter.format(input, {
-        rename: options
+        rename: extend({
+          logger: {
+            warn: function noop () {}
+          }
+        }, options)
       });
 
       // Unregister our plugins
