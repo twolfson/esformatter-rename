@@ -1,1 +1,1 @@
-var renamedHello = 'world';
+var renamedA = 'world';

@@ -1,7 +1,7 @@
 function hello() {
-  var x = true;
+  var a = true;
   if (true) {
     // DEV: These remain the same name for intention hinting
-    let x = false;
+    let a = false;
   }
 }

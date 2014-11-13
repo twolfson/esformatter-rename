@@ -1,4 +1,4 @@
 function hello() {
-  var renamedWat = {};
-  renamedWat.log(window);
+  var renamedA = {};
+  renamedA.log(window);
 }

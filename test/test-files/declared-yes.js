@@ -1,4 +1,4 @@
 function hello() {
-  var wat = {};
-  wat.log(window);
+  var a = {};
+  a.log(window);
 }

@@ -62,7 +62,7 @@ var testUtils = {
 // Start our tests
 // Basic functionality
 describe('esformatter-rename', function () {
-  describe('formatting a JS file with a declared `var`', function () {
+  describe('formatting a JS file with a declared `var` and a rename', function () {
     testUtils.format(__dirname + '/test-files/declared-yes.js');
 
     it('updates the names', function () {

@@ -1,3 +1,3 @@
 function hello() {
-  var renamedWorld = true;
+  var renamedA = true;
 }
