@@ -1,6 +1,11 @@
 # esformatter-rename [![Build status](https://travis-ci.org/twolfson/esformatter-rename.png?branch=master)](https://travis-ci.org/twolfson/esformatter-rename)
 
-Esformatter plugin to rename variables, parameters, and labels
+[Esformatter][`esformatter`] plugin to rename variables, parameters, and labels
+
+This was built to make comprehending deobfuscated scripts easier (e.g. rename `a` to `jQuery`). It is based off its sister project [`esformatter-phonetic`][] which renames variables to pronouncable equivalents (also good for deobfuscating scripts).
+
+[`esformatter`]: https://github.com/millermedeiros/esformatter
+[`esformatter-phonetic`]: https://github.com/twolfson/esformatter-phonetic
 
 ## Getting Started
 Install the module with: `npm install esformatter-rename`
