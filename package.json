@@ -1,8 +1,8 @@
 {
-  "name": "esformatter-phonetic",
-  "description": "Esformatter plugin that renames variables and functions to pronounceable names",
-  "version": "1.3.1",
-  "homepage": "https://github.com/twolfson/esformatter-phonetic",
+  "name": "esformatter-rename",
+  "description": "Esformatter plugin to rename variables, parameters, and labels",
+  "version": "1.0.0",
+  "homepage": "https://github.com/twolfson/esformatter-rename",
   "author": {
     "name": "Todd Wolfson",
     "email": "todd@twolfson.com",
@@ -10,44 +10,37 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/twolfson/esformatter-phonetic.git"
+    "url": "git://github.com/twolfson/esformatter-rename.git"
   },
   "bugs": {
-    "url": "https://github.com/twolfson/esformatter-phonetic/issues"
+    "url": "https://github.com/twolfson/esformatter-rename/issues"
   },
   "licenses": [
     {
       "type": "UNLICENSE",
-      "url": "https://github.com/twolfson/esformatter-phonetic/blob/master/UNLICENSE"
+      "url": "https://github.com/twolfson/esformatter-rename/blob/master/UNLICENSE"
     }
   ],
-  "main": "lib/esformatter-phonetic",
+  "main": "lib/esformatter-rename",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.8.0"
   },
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
-    "ecma-variable-scope": "~2.1.0",
-    "estraverse": "~1.7.1",
-    "obj-extend": "~0.1.0",
-    "phonetic": "~0.1.0",
-    "rocambole": "~0.3.6"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "circular-json": "~0.1.6",
-    "clone": "~0.1.18",
-    "esformatter": "~0.4.3",
+    "mocha": "~1.11.0",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-watch": "~0.4.0",
-    "mocha": "~1.11.0"
+    "grunt-contrib-watch": "~0.4.0"
   },
   "keywords": [
     "esformatter",
     "esformatter-plugin",
-    "phonetic",
-    "rename"
+    "rename",
+    "variable",
+    "parameter",
+    "label"
   ]
 }
