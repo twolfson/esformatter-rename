@@ -10,10 +10,45 @@ This was built to make comprehending deobfuscated scripts easier (e.g. rename `a
 ## Getting Started
 Install the module with: `npm install esformatter-rename`
 
+Then, register it as a plugin and format your JS:
+
 ```js
-var esformatter_rename = require('esformatter-rename');
-esformatter_rename.awesome(); // "awesome"
+// Load and register our plugin
+var esformatter = require('esformatter');
+var esformatterRename = require('esformatter-rename');
+esformatter.register(esformatterRename);
+
+// Format our code
+esformatter.format([
+  'function myFn() {',
+    'var a = \'hello\';',
+    'console.log(a);',
+  '}'
+].join('\n'), {
+  rename: {
+    variables: {
+      a: 'hello'
+    }
+  }
+});
+/*
+function myFn() {
+  var hello = 'hello';
+  console.log(hello);
+}
+*/
 ```
+
+Alternatively, load it via `format` or `.esformatter`:
+
+```js
+{
+  plugins: [
+    'esformatter-phonetic'
+  ]
+}
+```
+
 
 ## Documentation
 _(Coming soon)_
